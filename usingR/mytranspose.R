@@ -5,6 +5,8 @@ mytranspose <- function(x) {
     return(NULL)
   }else if (class(x)=='data.frame'){
     y <-data.frame(matrix(NA,ncol=dim(x)[1], nrow=dim(x)[2]))
+    colnames(y) <- rownames(x)
+    rownames(y) <-colnames(x)
     for (i in 1:dim(x)[2]) {
       y[i,]<-x[,i]
     }
